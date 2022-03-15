@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="commerce.Pages.SaleDetail">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Title}"/>
+            <Label Text="{Binding Body}"/>
+            <Label Text="{Binding ImgUrl[0]}"/>
+            <Label Text="{Binding ImgUrl[1]}"/>
+            <Label Text="{Binding ImgUrl[2]}"/>
+        </StackLayout>
+    </ContentPage.Content>
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="BackgroundColor" Value="BlanchedAlmond"/>
+        </Style>
+    </ContentPage.Resources>
+</ContentPage>

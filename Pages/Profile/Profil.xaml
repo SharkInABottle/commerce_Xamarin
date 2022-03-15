@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="Profile"
+             x:Class="commerce.Pages.Profil">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label  Text="email adress" Style="{StaticResource labelStyle}" />
+            <Entry x:Name="email" />
+            <Label Text="first name" Style="{StaticResource labelStyle}"/>
+            <Entry x:Name="firstName" />
+            <Label Text="last name" Style="{StaticResource labelStyle}"/>
+            <Entry x:Name="lastName" />
+            <Label Text="phone number" Style="{StaticResource labelStyle}"/>
+            <Entry x:Name="phoneNumber" Keyboard="Telephone" />
+            <Button Text="change password"/>
+            <Button Text="send verification email" IsVisible="true" />
+            <Button Text="log out" />
+            <Button Text="Delete my account" BackgroundColor="Red"/>
+        </StackLayout>
+    </ContentPage.Content>
+    <ContentPage.Resources></ContentPage.Resources>
+</ContentPage>
