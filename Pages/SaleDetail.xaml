@@ -3,17 +3,75 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="commerce.Pages.SaleDetail">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Title}"/>
-            <Label Text="{Binding Body}"/>
-            <Label Text="{Binding ImgUrl[0]}"/>
-            <Label Text="{Binding ImgUrl[1]}"/>
-            <Label Text="{Binding ImgUrl[2]}"/>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Retour" Clicked="ReturnClicked" HorizontalOptions="StartAndExpand" />
+                        <Button Text="Zoom image" Clicked="ImageView" HorizontalOptions="End" />
+
+                    </StackLayout>
+                    <CarouselView x:Name="carousel" ItemsSource="{Binding Images}" Loop="False" Margin="10,10,10,10">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame >
+
+                                    <Image Source="{Binding Url}" Aspect="AspectFit"/>
+
+                                </Frame>
+
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+
+                        <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" FontSize="Title"/>
+                    </StackLayout>
+                    <Frame BorderColor="Azure">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Prix" FontSize="Small" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Price}" HorizontalOptions="Start"/>
+                                <Label Text="Catégorie :" HorizontalOptions="EndAndExpand" FontSize="Small"/>
+                                <Label Text="{Binding Categorie}" HorizontalOptions="End"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Governorat:" HorizontalOptions="EndAndExpand" />
+                                <Label Text="{Binding Region}" HorizontalOptions="End"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame>
+
+                        <Label Text="{Binding Body}"/>
+                    </Frame>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Created by" HorizontalOptions="EndAndExpand"/>
+                        <Label Text="{Binding userClass.UserName}" HorizontalOptions="End"/>
+                    </StackLayout>
+                    <Label Text="{Binding CreatedTime}" HorizontalOptions="EndAndExpand"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Fausse vente ou immoral?" HorizontalOptions="EndAndExpand"/>
+                        <Button Text="Signaler" HorizontalOptions="End" BackgroundColor="Coral" Clicked="ReportClicked"/>
+                    </StackLayout>
+
+
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
     <ContentPage.Resources>
         <Style TargetType="Label">
-            <Setter Property="BackgroundColor" Value="BlanchedAlmond"/>
+            <!--Setter Property="BackgroundColor" Value="BlanchedAlmond"/-->
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="Padding" Value="10,10,10,10"/>
+            
         </Style>
     </ContentPage.Resources>
 </ContentPage>

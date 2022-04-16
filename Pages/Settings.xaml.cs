@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Essentials;
+﻿using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,24 +8,29 @@ namespace commerce.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Settings : ContentPage
     {
-        bool themeBool = Preferences.Get("DarkTheme", false);
+        public bool themeBool
+        {
+            get
+            {
+                return Preferences.Get("DarkTheme", false);
+            }
+            set
+            {
+                Preferences.Set("DarkTheme", value); Application.Current.UserAppTheme = (!value ? OSAppTheme.Light : OSAppTheme.Dark);
+                DisplayAlert("alert!", $"application theme {Application.Current.RequestedTheme} value is set to {Preferences.Get("DarkTheme", false)}", "ok");
+            }
+        }
         public Settings()
         {
-
-            darkMode = new Xamarin.Forms.Switch();
-            darkMode.IsToggled = Preferences.Get("DarkTheme", false);
+            
             InitializeComponent();
-        }
-
-
-
-        private void RadioButton_CheckedChanged(object sender, CheckedChangedEventArgs e)
-        {
-            Application.Current.UserAppTheme=(!themeBool ? OSAppTheme.Light : OSAppTheme.Dark);
-            Preferences.Set("DarkTheme", !themeBool);
-            themeBool = !themeBool;
-            Console.WriteLine($"application theme value is set to {themeBool}");
+            BindingContext = this;
 
         }
+
+
+
+
+
     }
 }

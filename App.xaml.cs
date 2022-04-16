@@ -1,4 +1,7 @@
-﻿using Xamarin.Forms;
+﻿using commerce.Models;
+using System;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace commerce
 {
@@ -6,11 +9,16 @@ namespace commerce
     {
         public App()
         {
-            UserAppTheme = OSAppTheme.Light;
 
             InitializeComponent();
             
+
             MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.Chocolate };
+
+                
+            
+
+            
         }
 
         protected override void OnStart()

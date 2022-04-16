@@ -16,5 +16,10 @@ namespace commerce.Pages.Profile
         {
             InitializeComponent();
         }
+        public ProfileTabbed(string x)
+        {
+            InitializeComponent();
+            if (x == "messages") this.CurrentPage=this.Children[2];
+        }
     }
 }

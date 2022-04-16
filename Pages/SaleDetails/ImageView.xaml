@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="commerce.Pages.Messages">
+             x:Class="commerce.Pages.SaleDetails.ImageView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Under Development, will be available soon"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                   FontSize="Large" />
+            <Image Source="{Binding}"/>
+            <Button Text="Retour" Clicked="ReturnClicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -4,9 +4,18 @@
              x:Class="commerce.Pages.SignUp">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout >
+                <Label  Text="email adress" Style="{StaticResource labelStyle}" />
+                <Entry Text="{Binding Email}" />
+                <Label Text="Username" Style="{StaticResource labelStyle}"/>
+                <Entry Text="{Binding UserName}" />
+                <Label Text="Password" Style="{StaticResource labelStyle}"/>
+                <Entry Text="{Binding Password}"  IsPassword="True" />
+                <Label Text="phone number" Style="{StaticResource labelStyle}"/>
+                <Entry Text="{Binding PhoneNumber}"  Keyboard="Telephone" />
+                <Button Text="sign Up" Clicked="SignUpClicked"/>
+                <Button Text="Cancel" Clicked="CancelClicked"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

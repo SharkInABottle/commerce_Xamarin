@@ -5,18 +5,28 @@
              x:Class="commerce.Pages.Profil">
     <ContentPage.Content>
         <StackLayout>
+        <StackLayout x:Name="ProfileStack" Padding="10,10,10,10">
             <Label  Text="email adress" Style="{StaticResource labelStyle}" />
-            <Entry x:Name="email" />
-            <Label Text="first name" Style="{StaticResource labelStyle}"/>
-            <Entry x:Name="firstName" />
-            <Label Text="last name" Style="{StaticResource labelStyle}"/>
-            <Entry x:Name="lastName" />
+            <Label x:Name="email" HorizontalOptions="Center" FontSize="Medium"/>
+            <Label Text="Username" Style="{StaticResource labelStyle}"/>
+                <Label x:Name="UserName" HorizontalOptions="Center" FontSize="Medium" />
             <Label Text="phone number" Style="{StaticResource labelStyle}"/>
-            <Entry x:Name="phoneNumber" Keyboard="Telephone" />
+                <Label x:Name="phoneNumber" HorizontalOptions="Center" FontSize="Medium" />
             <Button Text="change password"/>
             <Button Text="send verification email" IsVisible="true" />
-            <Button Text="log out" />
+            <Button Text="log out" Clicked="LogOutClicked" />
             <Button Text="Delete my account" BackgroundColor="Red"/>
+        </StackLayout>
+        <StackLayout x:Name="signInStack">
+            
+            <Label Text="Username" Style="{StaticResource labelStyle}"/>
+            <Entry x:Name="UserNameSign" />
+            <Label Text="Password" Style="{StaticResource labelStyle}"/>
+            <Entry x:Name="password" IsPassword="True" />
+            <Button Text="sign in" Clicked="SignInClicked" />
+            <Button Text="sign up" IsVisible="true" Clicked="SignUpClicked" />
+            
+        </StackLayout>
         </StackLayout>
     </ContentPage.Content>
     <ContentPage.Resources></ContentPage.Resources>

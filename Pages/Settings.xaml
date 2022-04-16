@@ -7,13 +7,12 @@
         <StackLayout Spacing="10">
             <StackLayout Orientation="Horizontal" Padding="10,10,10,10">
                 <Label Text="Dark theme Mode" FontSize="Large" HorizontalOptions="Center"/>
-                <Switch x:Name="darkMode"  HorizontalOptions="EndAndExpand"/>
+                <Switch x:Name="darkMode"  HorizontalOptions="EndAndExpand"  IsToggled="{Binding themeBool}"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Padding="10,10,10,10">
-                <Label Text="Dark theme Mode" FontSize="Large" HorizontalOptions="Center"/>
+                <Label Text="Nothing yet" FontSize="Large" HorizontalOptions="Center"/>
                 <Switch HorizontalOptions="EndAndExpand" />
             </StackLayout>
-            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

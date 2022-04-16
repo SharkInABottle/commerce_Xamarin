@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="commerce.Pages.editSale.EditSale">
+    <ContentPage.Content>
+        
+            <StackLayout  Spacing="1" Padding="1,1,1,1">
+            <Label Text="Title"/>
+            <Entry Text="{Binding Title}"/>
+            <Label Text="Body"/>
+            <Entry Text="{Binding Body}"/>
+            <Label Text="Price"/>
+            <Entry Keyboard="Numeric" Text="{Binding Price}"/>
+            <Label Text="image"/>
+            <Entry Text="{Binding  Images[0]}"/>
+            <Label Text="image"/>
+            <Entry Text="{Binding Images[1]}"/>
+            <Label Text="image"/>
+            <Entry Text="{Binding Images[2]}"/>
+            <Label Text="image"/>
+            <Entry Text="{Binding Images[3]}"/>
+            <Label Text="Region"/>
+            <Picker x:Name="selectablelistview" SelectedItem="{Binding Region}"/>
+            <Label Text="Category"/>
+            <Picker x:Name="selectableCategories" SelectedItem="{Binding Categorie}"/>
+            <Button Text="save" Clicked="SaveClicked"/>
+            <Button Text="discard" Clicked="DiscardClicked"/>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

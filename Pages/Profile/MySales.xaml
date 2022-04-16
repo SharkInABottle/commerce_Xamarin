@@ -3,33 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="commerce.Pages.MySales">
     <ContentPage.Content>
-        <ListView x:Name="yahalo1"  ItemsSource="{Binding}" ItemTapped="SaleDetails" IsPullToRefreshEnabled="False" RowHeight="200" Margin="10,10,10,10" SeparatorVisibility="None" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid ColumnSpacing="10" RowSpacing="10" Margin="10,10,10,10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="3*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label BackgroundColor="Gray" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Text="{Binding ImgUrl[0]}"></Label>
-                            <Label BackgroundColor="Gray" Grid.Row="0" Grid.Column="1" Text="{Binding ImgUrl[1]}"></Label>
-                            <Label BackgroundColor="Gray" Grid.Row="0" Grid.Column="2" Text="{Binding ImgUrl[2]}"></Label>
-                            <Label BackgroundColor="Gray" Grid.Row="0" Grid.Column="3" Text="{Binding ImgUrl[2]}"></Label>
-                            <Label Text="{Binding Title}" FontSize="Large" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HorizontalOptions="Center"/>
-                            <Label Text="{Binding Body}" FontSize="Body" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" LineBreakMode="TailTruncation" MaxLines="1"/>
-                            <Label Text="{Binding Likes}" FontSize="Small" Grid.Row="2" Grid.Column="3" HorizontalOptions="End" VerticalOptions="End"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="none" Text="Vous n'avez aucune annonce." FontSize="Large" HorizontalOptions="Center"/>
+                <ListView x:Name="yahalo1"  ItemsSource="{Binding}" ItemTapped="SaleDetails" IsPullToRefreshEnabled="False" RowHeight="200" Margin="10,10,10,10" SeparatorVisibility="None" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnSpacing="10" RowSpacing="10" Margin="10,10,10,10" BackgroundColor="LightBlue">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Frame BorderColor="Black" Padding="5" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4">
+                                        <Image   Source="{Binding Images[0].Url}" Aspect="AspectFill"/>
+                                    </Frame>
+                                    <Label Text="{Binding Title}" FontSize="Title" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Body}" FontSize="Medium" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation" MaxLines="2"/>
+
+                                    <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5">
+                                        <Label Text="{Binding Region}" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="End"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5" >
+                                        <Label Text="Prix:" FontSize="Body" HorizontalOptions="Start" MaxLines="1"/>
+                                        <Label Text="{Binding Price}" FontSize="Body" HorizontalOptions="FillAndExpand" MaxLines="1"/>
+                                        <Label Text="{Binding CreatedTime}" FontSize="Body"  HorizontalOptions="End" MaxLines="1"/>
+                                    </StackLayout>
+
+
+
+
+                                </Grid>
+
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

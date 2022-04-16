@@ -3,22 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="commerce.Pages.Profile.OwnSaleDetails">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Title}"/>
-            <Label Text="{Binding Body}"/>
-            <Label Text="{Binding ImgUrl[0]}"/>
-            <Label Text="{Binding ImgUrl[1]}"/>
-            <Label Text="{Binding ImgUrl[2]}"/>
-        
-        <StackLayout Orientation="Horizontal">
-                <Button Text="edit" HorizontalOptions="Start"/>
-                <Button Text="Delete" BackgroundColor="Red" HorizontalOptions="End"/>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Retour" Clicked="ReturnClicked" HorizontalOptions="StartAndExpand" />
+                        
+
+                    </StackLayout>
+                    <CarouselView x:Name="carousel" ItemsSource="{Binding Images}" Loop="False" Margin="10,10,10,10">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame >
+
+                                    <Image Source="{Binding Url}" Aspect="AspectFit"/>
+
+                                </Frame>
+
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+
+                        <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" FontSize="Title"/>
+                    </StackLayout>
+                    <Frame BorderColor="Azure">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Prix" FontSize="Small" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Price}" HorizontalOptions="Start"/>
+                                <Label Text="Catégorie :" HorizontalOptions="EndAndExpand" FontSize="Small"/>
+                                <Label Text="{Binding Categorie}" HorizontalOptions="End"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Governorat:" HorizontalOptions="EndAndExpand" />
+                                <Label Text="{Binding Region}" HorizontalOptions="End"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame>
+
+                        <Label Text="{Binding Body}"/>
+                    </Frame>
+                    <Label Text="{Binding CreatedTime}" HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="edit" HorizontalOptions="Start" Clicked="EditSale"/>
+                    <Button Text="Delete" BackgroundColor="Red" HorizontalOptions="End" Clicked="DeleteSale"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
     <ContentPage.Resources>
         <Style TargetType="Label">
-            <Setter Property="BackgroundColor" Value="BlanchedAlmond"/>
+            <!--Setter Property="BackgroundColor" Value="BlanchedAlmond"/-->
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="Padding" Value="10,10,10,10"/>
+
         </Style>
     </ContentPage.Resources>
 </ContentPage>

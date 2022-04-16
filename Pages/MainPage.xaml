@@ -13,7 +13,7 @@
     
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-            <Label Text="TIJARA" FontSize="Body" VerticalOptions="Center" />
+            <Label Text="" FontSize="Body" VerticalOptions="Center" />
             
         </StackLayout>
         
@@ -22,19 +22,19 @@
         <StackLayout>
 
         <StackLayout Orientation="Horizontal" BackgroundColor="CadetBlue">
-            <Button Text="Filters" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+            <Button Text="Filters" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Clicked="FilterButton"/>
             <SearchBar Placeholder="search" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" SearchButtonPressed="SearchClicked"/>
         </StackLayout>
-        <StackLayout Orientation="Vertical"  BackgroundColor="LightGray" >
+        <!--StackLayout Orientation="Vertical"  BackgroundColor="LightGray" >
             <Slider HorizontalOptions="Fill" Maximum="1000" Value="200" MinimumTrackColor="Red" ThumbColor="Red" MaximumTrackColor="IndianRed"/>
             <Label Text="200 Km radius" HorizontalOptions="Center" FontSize="Large"/>
-        </StackLayout>
+        </StackLayout-->
         <StackLayout>
-        <ListView x:Name="yahalo1"  ItemsSource="{Binding}" Refreshing="ListView_Refreshing" ItemTapped="SaleDetails" IsPullToRefreshEnabled="True" RowHeight="200" Margin="10,10,10,10" SeparatorVisibility="None" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <ListView x:Name="yahalo1"  ItemsSource="{Binding}" Refreshing="ListView_Refreshing" ItemTapped="SaleDetails" IsPullToRefreshEnabled="False" RowHeight="200" Margin="10,10,10,10" SeparatorVisibility="None" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid ColumnSpacing="10" RowSpacing="10" Margin="10,10,10,10">
+                        <Grid ColumnSpacing="10" RowSpacing="10" Margin="10,10,10,10" BackgroundColor="LightBlue">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -46,13 +46,22 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Label BackgroundColor="Gray" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Text="{Binding ImgUrl[0]}"></Label>
-                            <Label BackgroundColor="Gray" Grid.Row="0" Grid.Column="1" Text="{Binding ImgUrl[1]}"></Label>
-                            <Label BackgroundColor="Gray" Grid.Row="0" Grid.Column="2" Text="{Binding ImgUrl[2]}"></Label>
-                            <Label BackgroundColor="Gray" Grid.Row="0" Grid.Column="3" Text="{Binding ImgUrl[2]}"></Label>
-                            <Label Text="{Binding Title}" FontSize="Large" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HorizontalOptions="Center"/>
-                            <Label Text="{Binding Body}" FontSize="Body" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" LineBreakMode="TailTruncation" MaxLines="1"/>
-                            <Label Text="{Binding Likes}" FontSize="Small" Grid.Row="2" Grid.Column="3" HorizontalOptions="End" VerticalOptions="End"/>
+                                <Frame BorderColor="Black" Padding="5" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4">   
+                            <Image   Source="{Binding Images[0].Url}" Aspect="AspectFill"/>
+                                </Frame>
+                                <Label Text="{Binding Title}" FontSize="Title" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Body}" FontSize="Medium" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HorizontalOptions="StartAndExpand" LineBreakMode="TailTruncation" MaxLines="2"/>
+                                
+                            <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5">
+                                    <Label Text="{Binding Region}" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="End"/>
+                                </StackLayout>
+                            <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5" >
+                                    <Label Text="Prix:" FontSize="Body" HorizontalOptions="Start" MaxLines="1"/>
+                                    <Label Text="{Binding Price}" FontSize="Body" HorizontalOptions="FillAndExpand" MaxLines="1"/>
+                                    <Label Text="{Binding CreatedTime}" FontSize="Body"  HorizontalOptions="End" MaxLines="1"/>
+                                </StackLayout>    
+                            
+                                
 
 
                         </Grid>
@@ -63,10 +72,10 @@
             </ListView.ItemTemplate>
         </ListView>
         </StackLayout>
-        <StackLayout Orientation="Horizontal" BackgroundColor="CadetBlue">
+        <StackLayout Orientation="Horizontal" BackgroundColor="CadetBlue" VerticalOptions="End">
             
-            <Button Text="create" BackgroundColor="Red" HorizontalOptions="CenterAndExpand" CornerRadius="30"/>
-            <Button  Text="Messages"  HorizontalOptions="End"/>
+            <Button Text="create" BackgroundColor="Red" HorizontalOptions="CenterAndExpand" CornerRadius="30" Clicked="CreateNew"/>
+            <!--Button  Text="Messages"  HorizontalOptions="End" Clicked="MessagesTab"/-->
         </StackLayout>
         </StackLayout>
     
